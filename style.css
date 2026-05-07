@@ -83,7 +83,30 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 
-.main-content h1 {
+.main-content> h1 {
   font-size:75px;
   opacity:0.3;
+}
+
+dialog h1,p{
+  padding:10px;
+  font-size:30px;
+}
+
+dialog h1 {
+  text-align:center;
+}
+
+input[type="checkbox"] {
+  width:30px;
+  height:30px;
+}
+
+.dialog-buttons {
+  text-align:center;
+}
+
+.dialog-buttons button {
+  margin-left:10px;
+  margin-right: 10px;
 }

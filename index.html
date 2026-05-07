@@ -12,12 +12,38 @@
       <h1>My Library</h1>
       <div class="nav-bars">
         <h4>Home</h4>
-        <h4>New Book</h4>
+        <h4 class="addNewBook">New Book</h4>
         <h4>Settings</h4>
       </div>
     </div>
     <div class="main-content">
       <h1>No Books Added</h1>
+      <dialog  >
+        <form  method="dialog">
+          <h1>Add a New Book</h3>
+          <p>
+            <input type="text" placeholder="Title" id="title" name="title">
+          </p>
+          <p>
+            <input type="text" placeholder="Author" id="author" name="author">
+          </p>
+          <p>
+            <input type="number" placeholder="Pages" id="pages" name="pages">
+          </p>
+          <p>
+            <label for="readstatus">Read:</label>
+            <input type="checkbox" id="readstatus" name="readstatus" >
+          </p>
+          <div class="dialog-buttons">
+            <button formmethod="dialog">
+              Cancel
+            </button>
+            <button class="confirmBtn">
+              Add
+            </button>
+          </div>
+        </form>
+      </dialog>
     </div>
   </div>
 

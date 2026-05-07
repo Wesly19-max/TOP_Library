@@ -30,3 +30,19 @@ addBookToLibrary("Hunger Games","Suzanne Collins",98,false);
 //  display.textContent += `${index.bookName} from ${index.author} has ${index.numberOfPages} pages`;
 // }
 //);
+
+//dialog
+const newBookButton = document.querySelector(".addNewBook");
+const dialog = document.querySelector("dialog");
+
+
+
+//click "New Book" button and dialog will popup
+newBookButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+confirmBtn.addEventListener("click", (event) => {
+  event.preventDefault(); // We don't want to submit this fake form
+});
+
