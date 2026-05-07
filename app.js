@@ -20,3 +20,13 @@ function addBookToLibrary(bookName,author,numberOfPages,readStatus) {
 }
 
 
+//display books
+
+addBookToLibrary("Hunger Games","Suzanne Collins",98,false);
+addBookToLibrary("Hunger Games","Suzanne Collins",98,false);
+
+//let display = document.querySelector("p");
+//myLibrary.forEach((index) => {
+//  display.textContent += `${index.bookName} from ${index.author} has ${index.numberOfPages} pages`;
+// }
+//);

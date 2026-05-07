@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -44,4 +46,44 @@ h1, h2, h3, h4, h5, h6 {
 
 #root, #__next {
   isolation: isolate;
+}
+
+* {
+  
+  font-family:"Roboto",sans-serif
+}
+.container {
+  display:grid;
+  grid-template-columns: 1fr 4fr;
+  height:100vh;
+}
+
+.sidebar {
+  background-color: #1E90FF;
+  text-align:center;
+  color:white;
+  
+}
+
+.sidebar h1 {
+  font-size:40px;
+  padding:10px;
+}
+
+.nav-bars {
+  margin-top:100px;
+  font-size:25px;
+  display:grid;
+  gap:25px;
+}
+
+.main-content {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.main-content h1 {
+  font-size:75px;
+  opacity:0.3;
 }
