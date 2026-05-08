@@ -1,6 +1,6 @@
 //list of books
 
-const myLibrary = [];
+let myLibrary = [];
 
 //Book constructor
 function Book (bookName,author,numberOfPages,readStatus) {
@@ -19,16 +19,6 @@ function addBookToLibrary(bookName,author,numberOfPages,readStatus) {
   myLibrary.push(book);
 }
 
-
-//display books
-
-
-//let display = document.querySelector("p");
-//myLibrary.forEach((index) => {
-//  display.textContent += `${index.bookName} from ${index.author} has ${index.numberOfPages} pages`;
-// }
-//);
-
 //dialog
 const newBookButton = document.querySelector(".addNewBook");
 const dialog = document.querySelector("dialog");
@@ -42,13 +32,11 @@ newBookButton.addEventListener("click", () => {
 });
 
 
-function displayBookCards() {
-  //display user input on the bookcard
-  //for each book object in myLibrary array
-  myLibrary.forEach((index) => {
-    //create new element div (book-card)
+function createNewBookCard(index) {
+  //create new element div (book-card)
     let div = document.createElement("div");
     div.classList.add("book-card");
+    div.setAttribute("data-id",index.id);
 
     //fill the div with the properties of objects(e.g.title,author,pages,readstatus)
     let title = document.createElement("h1");
@@ -56,6 +44,7 @@ function displayBookCards() {
     let page = document.createElement("p");
     let removeBtn = document.createElement("button");
     let readStatusBtn = document.createElement("button");
+    readStatusBtn.classList("")
 
     title.textContent = `"${index.bookName}"`;
     author.textContent =  index.author;
@@ -76,6 +65,37 @@ function displayBookCards() {
 
 
     document.querySelector(".mainContent").appendChild(div);
+
+    //when remove button is clicked, the book that is clicked will be deleted
+  removeBtn.addEventListener("click", () => {
+    //remove book object in array with the corresponding id 
+    //of the parent node of removebtn that was clicked
+    myLibrary = myLibrary.filter((index) => {
+      console.log(removeBtn.parentNode.dataset.id);
+      console.log(index.id);
+      return !(removeBtn.parentNode.dataset.id === index.id);
+    })
+    
+    console.log(myLibrary);
+    displayBookCards();
+  })
+  
+}
+
+function displayBookCards() {
+  //delete current book cards first
+  let bookCards = document.querySelectorAll(".book-card");
+
+  for (let i=0;i<bookCards.length;i++) {
+    bookCards[i].remove();
+  }
+
+  //display user input on the bookcard
+  //for each book object in myLibrary array
+  myLibrary.forEach((index) => {
+    createNewBookCard(index);
+
+    
   });
 };
 
@@ -100,12 +120,11 @@ confirmBtn.addEventListener("click", (event) => {
       defaultMessage.remove();
     }
   
-    let bookCards = document.querySelectorAll(".book-card");
-
-    for (let i=0;i<bookCards.length;i++) {
-      bookCards[i].remove();
-    }
+    
     displayBookCards();
     dialog.close();
 });
+
+
+
 
