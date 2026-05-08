@@ -16,8 +16,9 @@
         <h4>Settings</h4>
       </div>
     </div>
-    <div class="main-content">
-      <h1>No Books Added</h1>
+    <div class="mainContent">
+      <h1 id="default-message">No Books Added</h1>
+
       <dialog  >
         <form  method="dialog">
           <h1>Add a New Book</h3>
@@ -32,15 +33,13 @@
           </p>
           <p>
             <label for="readstatus">Read:</label>
-            <input type="checkbox" id="readstatus" name="readstatus" >
+            <input type="checkbox" id="readstatus" name="readstatus" value="read" >
           </p>
           <div class="dialog-buttons">
             <button formmethod="dialog">
               Cancel
             </button>
-            <button class="confirmBtn">
-              Add
-            </button>
+            <input type="submit" class="confirmBtn" >
           </div>
         </form>
       </dialog>
