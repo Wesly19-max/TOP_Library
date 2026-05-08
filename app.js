@@ -44,7 +44,7 @@ function createNewBookCard(index) {
     let page = document.createElement("p");
     let removeBtn = document.createElement("button");
     let readStatusBtn = document.createElement("button");
-    readStatusBtn.classList("")
+    readStatusBtn.classList.add("read-status")
 
     title.textContent = `"${index.bookName}"`;
     author.textContent =  index.author;
@@ -79,7 +79,29 @@ function createNewBookCard(index) {
     console.log(myLibrary);
     displayBookCards();
   })
-  
+
+  //when readStatusBtn is clicked, it will turn into not read if its read
+  //if its not read, then it will turn into read
+  readStatusBtn.addEventListener("click",()=> {
+    //change book object's readStatus to false/true
+      //find corresponding book object of the button's div 
+      
+      let changedBookObject = myLibrary.find((index) => {
+        return index.id == readStatusBtn.parentNode.dataset.id;
+      })
+      console.log(changedBookObject);
+      //toggle the book object's readStatus
+      if (changedBookObject.readStatus === true) {
+        changedBookObject.readStatus = false;
+      }else {
+        changedBookObject.readStatus =true;
+      }
+      console.log(changedBookObject);
+      console.log(myLibrary);
+      //call displaycards function
+      displayBookCards();
+
+  })
 }
 
 function displayBookCards() {
