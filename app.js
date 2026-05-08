@@ -71,12 +71,9 @@ function createNewBookCard(index) {
     //remove book object in array with the corresponding id 
     //of the parent node of removebtn that was clicked
     myLibrary = myLibrary.filter((index) => {
-      console.log(removeBtn.parentNode.dataset.id);
-      console.log(index.id);
       return !(removeBtn.parentNode.dataset.id === index.id);
     })
     
-    console.log(myLibrary);
     displayBookCards();
   })
 
@@ -89,15 +86,12 @@ function createNewBookCard(index) {
       let changedBookObject = myLibrary.find((index) => {
         return index.id == readStatusBtn.parentNode.dataset.id;
       })
-      console.log(changedBookObject);
       //toggle the book object's readStatus
       if (changedBookObject.readStatus === true) {
         changedBookObject.readStatus = false;
       }else {
         changedBookObject.readStatus =true;
       }
-      console.log(changedBookObject);
-      console.log(myLibrary);
       //call displaycards function
       displayBookCards();
 
