@@ -16,11 +16,7 @@ class Book {
   //toggle book object instance's status
 
   toggleReadStatus() {
-    if (this.readStatus == true) {
-      this.readStatus = false;
-    }else {
-      this.readStatus = true;
-    }
+    this.readStatus = !this.readStatus;
   }
 }
 
