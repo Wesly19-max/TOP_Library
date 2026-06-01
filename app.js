@@ -26,7 +26,6 @@ function addBookToLibrary(bookName,author,numberOfPages,readStatus) {
   const book = new Book(bookName,author,numberOfPages,readStatus);
   //store new book object in myLibrary array
   myLibrary.push(book);
-  console.log(book)
 }
 
 //dialog
@@ -93,8 +92,8 @@ function createNewBookCard(index) {
     //change book object's readStatus to false/true
       //find corresponding book object of the button's div 
       
-      let changedBookObject = myLibrary.find((index) => {
-        return index.id == readStatusBtn.parentNode.dataset.id;
+      let changedBookObject = myLibrary.find((book) => {
+        return book.id == readStatusBtn.parentNode.dataset.id;
       })
       //toggle the book object's readStatus
       changedBookObject.toggleReadStatus()
