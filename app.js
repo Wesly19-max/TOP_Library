@@ -2,13 +2,26 @@
 
 let myLibrary = [];
 
-//Book constructor
-function Book (bookName,author,numberOfPages,readStatus) {
-  this.id = crypto.randomUUID();
-  this.bookName = bookName;
-  this.author = author;
-  this.numberOfPages = numberOfPages;
-  this.readStatus = readStatus;
+//Book factory to create more book instances
+class Book {
+  
+  constructor(bookName,author,numberOfPages,readStatus) {
+    this.id = crypto.randomUUID();
+    this.bookName = bookName;
+    this.author = author;
+    this.numberOfPages = numberOfPages;
+    this.readStatus = readStatus;
+  }
+
+  //toggle book object instance's status
+
+  toggleReadStatus() {
+    if (this.readStatus == true) {
+      this.readStatus = false;
+    }else {
+      this.readStatus = true;
+    }
+  }
 }
 
 //add book instances
@@ -17,6 +30,7 @@ function addBookToLibrary(bookName,author,numberOfPages,readStatus) {
   const book = new Book(bookName,author,numberOfPages,readStatus);
   //store new book object in myLibrary array
   myLibrary.push(book);
+  console.log(book)
 }
 
 //dialog
@@ -87,11 +101,7 @@ function createNewBookCard(index) {
         return index.id == readStatusBtn.parentNode.dataset.id;
       })
       //toggle the book object's readStatus
-      if (changedBookObject.readStatus === true) {
-        changedBookObject.readStatus = false;
-      }else {
-        changedBookObject.readStatus =true;
-      }
+      changedBookObject.toggleReadStatus()
       //call displaycards function
       displayBookCards();
 
@@ -130,7 +140,7 @@ confirmBtn.addEventListener("click", (event) => {
 
   document.querySelector("form").reset();
   //display new book card based on library array
-    //delete no books added text
+    //delete "n books added" text
     const defaultMessage = document.getElementById("default-message");
     if (defaultMessage) {
       defaultMessage.remove();
